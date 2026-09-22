@@ -118,7 +118,7 @@ int main(int argc, char* argv[]) {
             pixelverse::utils::JsonValue mv;
             mv.type = pixelverse::utils::JsonValue::Type::Object;
             mv["id"] = m.id;
-            mv["winner"] = m.winnerId;
+            mv["winner"] = m.winner;
             root.arrayValue.push_back(mv);
         }
         res.set_content(root.serialize(), "application/json");
