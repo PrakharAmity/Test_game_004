@@ -1,0 +1,28 @@
+{
+  "recommendedFonts": [
+    {
+      "name": "Orbitron",
+      "category": "Display / Sci-Fi Headings",
+      "source": "Google Fonts (https://fonts.google.com/specimen/Orbitron)",
+      "weights": [400, 700, 900]
+    },
+    {
+      "name": "Outfit",
+      "category": "Modern Clean UI Body",
+      "source": "Google Fonts (https://fonts.google.com/specimen/Outfit)",
+      "weights": [300, 400, 500, 600, 700]
+    },
+    {
+      "name": "JetBrains Mono",
+      "category": "Technical Stats & Code",
+      "source": "Google Fonts (https://fonts.google.com/specimen/JetBrains+Mono)",
+      "weights": [400, 700]
+    }
+  ],
+  "typographyHierarchy": {
+    "h1_title": "Orbitron 32px Bold, uppercase, letter-spacing 2px, text-shadow 0 0 15px cyan",
+    "card_title": "Orbitron 18px Bold, color #E0E7FF",
+    "stats_number": "JetBrains Mono 24px Bold, color #FFD700",
+    "body_text": "Outfit 14px Regular, color #94A3B8"
+  }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFFF" />
+      <stop offset="70%" stop-color="#39FF14" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+    <filter id="bladeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Blade -->
+  <path d="M 78 14 Q 52 42 26 70 L 22 66 Q 50 36 74 12 Z" fill="url(#bladeGrad)" filter="url(#bladeGlow)" />
+  <!-- Tsuba / Guard -->
+  <polygon points="26,62 34,70 28,76 20,68" fill="#FFD700" stroke="#FFA500" stroke-width="1.5" />
+  <!-- Handle / Tsuka -->
+  <line x1="24" y1="72" x2="12" y2="84" stroke="#8A2BE2" stroke-width="5" stroke-linecap="round" />
+  <line x1="22" y1="74" x2="14" y2="82" stroke="#00FFFF" stroke-width="2" stroke-dasharray="2,2" />
+  <!-- Energy Sparkles -->
+  <circle cx="68" cy="22" r="1.5" fill="#FFFFFF" filter="url(#bladeGlow)" />
+  <circle cx="48" cy="44" r="1.5" fill="#FFFFFF" filter="url(#bladeGlow)" />
+</svg>

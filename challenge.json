@@ -1,0 +1,23 @@
+{
+  "challenge_id": "pixelverse-legends-001",
+  "repository_url": "https://github.com/example/pixelverse-legends.git",
+  "runtime_config": {
+    "runtime_type": "cpp-cmake",
+    "image": "gcc:14",
+    "install_command": "cmake -B build -S . && cmake --build build",
+    "start_command": "sh -c \"if [ -f ./build/pixelverse_app ]; then ./build/pixelverse_app; elif [ -f ./build/server ]; then ./build/server; else sleep infinity; fi\"",
+    "test_command": "./build/pixelverse_evaluator",
+    "ports": [
+      {
+        "container_port": 8080,
+        "type": "preview"
+      }
+    ],
+    "resources": {
+      "cpu": 1,
+      "memory_mb": 2048,
+      "disk_mb": 4096,
+      "timeout_seconds": 60
+    }
+  }
+}

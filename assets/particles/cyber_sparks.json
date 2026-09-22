@@ -1,0 +1,40 @@
+{
+  "particlePresets": {
+    "cyber_sparks": {
+      "count": 64,
+      "lifetimeRange": [0.4, 1.2],
+      "speedRange": [40.0, 180.0],
+      "colors": ["#00F0FF", "#8A2BE2", "#FF007F", "#FFFFFF"],
+      "gravity": [0.0, 15.0],
+      "decayType": "CubicOut",
+      "blendMode": "Additive"
+    },
+    "chest_explosion": {
+      "count": 128,
+      "lifetimeRange": [0.8, 2.5],
+      "speedRange": [100.0, 350.0],
+      "colors": ["#FFD700", "#FFA500", "#00FFFF", "#FFFFFF"],
+      "gravity": [0.0, 60.0],
+      "decayType": "BounceOut",
+      "blendMode": "Additive"
+    },
+    "ambient_fog": {
+      "count": 32,
+      "lifetimeRange": [3.0, 7.0],
+      "speedRange": [5.0, 20.0],
+      "colors": ["#1A0B2E", "#0B1D3A", "#26082B"],
+      "gravity": [0.0, -2.0],
+      "decayType": "SineInOut",
+      "blendMode": "Alpha"
+    },
+    "tournament_victory": {
+      "count": 200,
+      "lifetimeRange": [1.0, 3.0],
+      "speedRange": [80.0, 400.0],
+      "colors": ["#00FF88", "#00E5FF", "#FFEA00", "#FF0055"],
+      "gravity": [0.0, 45.0],
+      "decayType": "QuadOut",
+      "blendMode": "Screen"
+    }
+  }
+}
