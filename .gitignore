@@ -1,0 +1,12 @@
+/build/
+/build_fixed/
+/save/
+.vscode/
+*.out
+*.exe
+*.o
+*.a
+*.lib
+*.dll
+*.so
+*.dylib

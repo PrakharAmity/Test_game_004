@@ -1,6 +1,6 @@
 {
   "challenge_id": "pixelverse-legends-001",
-  "repository_url": "https://github.com/example/pixelverse-legends.git",
+  "repository_url": "https://github.com/PrakharAmity/Test_game_004.git",
   "runtime_config": {
     "runtime_type": "cpp-cmake",
     "image": "gcc:14",
