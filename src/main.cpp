@@ -69,14 +69,14 @@ int main(int argc, char* argv[]) {
     engine.initialize();
     
     // Seed test data for bugs
-    engine.getUI().getDashboard().clearRoster();
-    engine.getUI().getDashboard().addRosterPlayer(pixelverse::player::Player(1, "Rookie_A", "av1", 1, 0, 1000));
-    engine.getUI().getDashboard().addRosterPlayer(pixelverse::player::Player(2, "Mid_B", "av2", 1, 0, 2000));
-    engine.getUI().getDashboard().addRosterPlayer(pixelverse::player::Player(3, "Pro_C", "av3", 1, 0, 3000));
+    engine.getPlayerDashboard().clearRoster();
+    engine.getPlayerDashboard().addRosterPlayer(pixelverse::player::Player(1, "Rookie_A", "av1", 1, 0, 1000));
+    engine.getPlayerDashboard().addRosterPlayer(pixelverse::player::Player(2, "Mid_B", "av2", 1, 0, 2000));
+    engine.getPlayerDashboard().addRosterPlayer(pixelverse::player::Player(3, "Pro_C", "av3", 1, 0, 3000));
     
-    engine.getTournament().clearMatches();
+    engine.getTournamentManager().clearMatches();
     for (int i=1; i<=10; ++i) {
-        engine.getTournament().addMatch(pixelverse::tournament::Match(i, "P1", "P2", 2, 1, "Bracket", pixelverse::tournament::MatchStatus::Completed, "P1"));
+        engine.getTournamentManager().addMatch(pixelverse::tournament::Match(i, "P1", "P2", 2, 1, "Bracket", pixelverse::tournament::MatchStatus::Completed, "P1"));
     }
     
     engine.getRewardManager().clearQueue();
@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
     svr.Get("/api/players/filter", [&](const httplib::Request& req, httplib::Response& res) {
         int min = req.has_param("min") ? std::stoi(req.get_param_value("min")) : 0;
         int max = req.has_param("max") ? std::stoi(req.get_param_value("max")) : 10000;
-        auto players = engine.getUI().getDashboard().filterByCoins(min, max);
+        auto players = engine.getPlayerDashboard().filterByCoins(min, max);
         
         pixelverse::utils::JsonValue root;
         root.type = pixelverse::utils::JsonValue::Type::Array;
@@ -110,7 +110,7 @@ int main(int argc, char* argv[]) {
     svr.Get("/api/tournament/matches", [&](const httplib::Request& req, httplib::Response& res) {
         int page = req.has_param("page") ? std::stoi(req.get_param_value("page")) : 1;
         int size = req.has_param("size") ? std::stoi(req.get_param_value("size")) : 4;
-        auto matches = engine.getTournament().getMatchesPage(page, size);
+        auto matches = engine.getTournamentManager().getMatchesPage(page, size);
         
         pixelverse::utils::JsonValue root;
         root.type = pixelverse::utils::JsonValue::Type::Array;
@@ -148,7 +148,7 @@ int main(int argc, char* argv[]) {
         if (ok) {
             root["status"] = "success";
             root["rewardId"] = claimed.id;
-            root["name"] = claimed.name;
+            root["name"] = claimed.title;
             root["isPriority"] = claimed.isPriority;
         } else {
             root["status"] = "empty";
