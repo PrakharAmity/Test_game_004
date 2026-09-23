@@ -47,4 +47,3 @@ Once all 4 bugs are diagnosed and resolved:
 3. The leaderboard displays master players with the highest scores at Rank #1 (descending order).
 4. High-priority VIP rewards are dispatched and claimed before standard daily login rewards in the queue.
 
----

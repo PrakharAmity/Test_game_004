@@ -6,20 +6,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Option to toggle fixes for testing and challenge evaluation
-option(FIX_BUGS "Compile with all 6 logical bug fixes applied" OFF)
+option(FIX_BUGS "Compile with all 4 logical bug fixes applied" OFF)
 
 if(FIX_BUGS)
     message(STATUS ">> Compiling PixelVerse Legends with FIX_BUGS enabled")
     add_compile_definitions(FIX_BUGS)
 else()
-    message(STATUS ">> Compiling PixelVerse Legends in CHALLENGE MODE (6 intentional bugs present)")
+    message(STATUS ">> Compiling PixelVerse Legends in CHALLENGE MODE (4 intentional bugs present)")
 endif()
 
-# Compiler flags
+# Compiler flags - Optimized for low resources and minimal binary size
 if(MSVC)
-    add_compile_options(/W4 /EHsc)
+    add_compile_options(/W4 /EHsc /O2 /Gy)
 else()
-    add_compile_options(-Wall -Wextra -pedantic)
+    add_compile_options(-Wall -Wextra -pedantic -Os -ffunction-sections -fdata-sections)
+    add_link_options(-Wl,--gc-sections)
 endif()
 
 include_directories(
